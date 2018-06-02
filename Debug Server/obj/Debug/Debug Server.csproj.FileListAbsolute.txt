@@ -102,3 +102,23 @@ C:\Users\hudanursungu\Desktop\Debug Server\Debug Server\obj\Debug\Debug Server.c
 C:\Users\hudanursungu\Desktop\Debug Server\Debug Server\obj\Debug\Debug Server.csproj.CopyComplete
 C:\Users\hudanursungu\Desktop\Debug Server\Debug Server\obj\Debug\Debug Server.exe
 C:\Users\hudanursungu\Desktop\Debug Server\Debug Server\obj\Debug\Debug Server.pdb
+C:\Users\hudanursungu\Desktop\PathFinderServer\Debug Server\bin\Debug\Debug Server.exe.config
+C:\Users\hudanursungu\Desktop\PathFinderServer\Debug Server\bin\Debug\Debug Server.exe
+C:\Users\hudanursungu\Desktop\PathFinderServer\Debug Server\bin\Debug\Debug Server.pdb
+C:\Users\hudanursungu\Desktop\PathFinderServer\Debug Server\bin\Debug\DnsClient.dll
+C:\Users\hudanursungu\Desktop\PathFinderServer\Debug Server\bin\Debug\MongoDB.Bson.dll
+C:\Users\hudanursungu\Desktop\PathFinderServer\Debug Server\bin\Debug\MongoDB.Driver.Core.dll
+C:\Users\hudanursungu\Desktop\PathFinderServer\Debug Server\bin\Debug\MongoDB.Driver.dll
+C:\Users\hudanursungu\Desktop\PathFinderServer\Debug Server\bin\Debug\Newtonsoft.Json.dll
+C:\Users\hudanursungu\Desktop\PathFinderServer\Debug Server\bin\Debug\System.Buffers.dll
+C:\Users\hudanursungu\Desktop\PathFinderServer\Debug Server\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\hudanursungu\Desktop\PathFinderServer\Debug Server\bin\Debug\DnsClient.xml
+C:\Users\hudanursungu\Desktop\PathFinderServer\Debug Server\bin\Debug\MongoDB.Bson.xml
+C:\Users\hudanursungu\Desktop\PathFinderServer\Debug Server\bin\Debug\MongoDB.Driver.xml
+C:\Users\hudanursungu\Desktop\PathFinderServer\Debug Server\bin\Debug\MongoDB.Driver.Core.xml
+C:\Users\hudanursungu\Desktop\PathFinderServer\Debug Server\bin\Debug\Newtonsoft.Json.xml
+C:\Users\hudanursungu\Desktop\PathFinderServer\Debug Server\obj\Debug\Debug Server.csprojResolveAssemblyReference.cache
+C:\Users\hudanursungu\Desktop\PathFinderServer\Debug Server\obj\Debug\Debug Server.csproj.CoreCompileInputs.cache
+C:\Users\hudanursungu\Desktop\PathFinderServer\Debug Server\obj\Debug\Debug Server.csproj.CopyComplete
+C:\Users\hudanursungu\Desktop\PathFinderServer\Debug Server\obj\Debug\Debug Server.exe
+C:\Users\hudanursungu\Desktop\PathFinderServer\Debug Server\obj\Debug\Debug Server.pdb

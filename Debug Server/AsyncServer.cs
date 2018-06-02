@@ -25,8 +25,7 @@ namespace Debug_Server
         static readonly int server_port = 27017;
         static readonly string database_name = "cool_db";
         private static IMongoClient Client = new MongoClient($"mongodb://{server_username}:{server_password}@{server_host}:{server_port}/{database_name}");
-        //private static IMongoClient Client = new MongoClient();
-        //private static string database_name = "LocalTest";
+
         private static IMongoDatabase _database = Client.GetDatabase(database_name);
         public void SetupServer()
         {
@@ -64,25 +63,29 @@ namespace Debug_Server
                 byte[] dataBuf = new byte[received];
                 Array.Copy(_buffer, dataBuf, received);
                 string[] parameters = Encoding.UTF8.GetString(dataBuf).Split('_');
-                string targetName = parameters[1];
-                string startName = parameters[2];
-                string fileName = parameters[3];
+                if (parameters.Length >  2)
+                {
+                    string targetName = parameters[1];
+                    string startName = parameters[2];
+                    string fileName = parameters[3];
+                    string viewType = parameters[4];
+                    var procInfoUnity = new ProcessStartInfo(Environment.CurrentDirectory + @"\PathProgram\pathprog.exe"); // programın nerede oldğunu belirtiyoruz
+                    procInfoUnity.Arguments = "\"" + targetName + "\" \"" + startName + "\" \"" + fileName + "\" \"" +viewType + "\""; // Parametreleri yolu bulancak programa göderiyoruz
+                    var unityProc = Process.Start(procInfoUnity); // Programı başlatıyoruz
+                    unityProc.EnableRaisingEvents = true;
+                    procInfoUnity.UseShellExecute = false;
+                    unityProc.WaitForExit(); // Video tamamlanıp program kapanana kadar bekliyoruz
 
-                var procInfoUnity = new ProcessStartInfo(Environment.CurrentDirectory + @"\PathProgram\pathprog.exe"); // programın nerede oldğunu belirtiyoruz
-                procInfoUnity.Arguments = "\"" + targetName + "\" \"" + startName + "\" \"" + fileName + "\""; // Parametreleri yolu bulancak programa göderiyoruz
-                var unityProc = Process.Start(procInfoUnity); // Programı başlatıyoruz
-                unityProc.EnableRaisingEvents = true;
-                procInfoUnity.UseShellExecute = false;
-                unityProc.WaitForExit(); // Video tamamlanıp program kapanana kadar bekliyoruz
-
-                string documentPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-                var selectedVideo = "";
-                var videoPath = documentPath + @"\MapPathFinding\Video\"; // pathprog'ın (diğer program) video'yu kaydettiği yer
-                var videos = Directory.GetFiles(videoPath); // O yerdeki tüm videolar çekiyoruz
-                selectedVideo = videos.FirstOrDefault((x) => x.Contains(fileName)); // bizim videoyu buluyoruz               
-                string _id = PushDatabase(selectedVideo); //Server'da çalışacak, server video _id'yi geri gönderecek
-                SendText(socket, _id);
-                socket.BeginReceive(_buffer, 0, _buffer.Length, SocketFlags.None, ReceiveCallback, socket);
+                    string documentPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                    var selectedVideo = "";
+                    var videoPath = documentPath + @"\MapPathFinding\Video\"; // pathprog'ın (diğer program) video'yu kaydettiği yer
+                    var videos = Directory.GetFiles(videoPath); // O yerdeki tüm videolar çekiyoruz
+                    selectedVideo = videos.FirstOrDefault((x) => x.Contains(fileName)); // bizim videoyu buluyoruz               
+                    string _id = PushDatabase(selectedVideo); //Server'da çalışacak, server video _id'yi geri gönderecek
+                    SendText(socket, _id);
+                    socket.BeginReceive(_buffer, 0, _buffer.Length, SocketFlags.None, ReceiveCallback, socket);
+                }
+             
             }
             else
             {
